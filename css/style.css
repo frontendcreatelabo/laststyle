@@ -32,6 +32,7 @@ h2 {
   padding-left: 20px;
   text-align: center;
   font-size: 2.5em;
+  text-shadow: 1px 1px 0 #fff;
 }
 .contentshead--ttl:first-letter {
   margin-right: .1em;
