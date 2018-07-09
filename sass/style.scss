@@ -12,6 +12,12 @@
 	align-items: center;
 }
 
+@mixin notestyle($size: 2rem, $color: rgba(150,150,150,.4)){
+	background-image: linear-gradient( $color .1em, transparent .1em );
+	background-size: auto $size; // line-heightと一致させる
+	line-height: $size;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -19,7 +25,7 @@ body {
 	color: #111;
 }
 
-h2 {
+h2,ol {
 	-webkit-margin-after: 0;
 	-webkit-margin-before: 0;
 }
@@ -74,6 +80,10 @@ h2 {
 	align-items: center;
 	justify-content: space-between;
 	border: solid 1px;
+	&-nonborder {
+		@extend .imgpanel;
+		border: 0;
+	}
 	&--item{
 		width: 49%;	
 		&:nth-of-type(2) {
@@ -83,6 +93,10 @@ h2 {
 			-ms-flex-align: center;
 			-webkit-align-items: center;
 			align-items: center;
+		}
+		&-note {
+			width: 49%;
+			@include notestyle;
 		}
 		
 	}
@@ -94,9 +108,48 @@ h2 {
 			content:"?";
 		}
 	}
+	&--note {
+		padding:{
+			top: 2em;
+			bottom: 2em;
+		}
+	}
 	&--img {
 		width: 100%;
 		height: auto;
 	}
 }
+
+.notewrapper {
+	margin-top: 40px;
+	@include notestyle;
+  	&--text:not(:first-child) {
+  		padding-top: 14px;
+  	}
+  	&--block {
+  		padding-top: 14px;
+		position: relative;
+		padding: 0 15px 0 50px;
+		box-sizing: border-box;
+		font-style: italic;
+		border: solid 2px #464646;
+		color: #464646;
+		&:before {
+			display: inline-block;
+			position: absolute;
+			top: 10px;
+			left: 0;
+			vertical-align: middle;
+			content: "“";
+			font-family: sans-serif;
+			color: #77c0c9;
+			font-size: 90px;
+			line-height: 1;
+		}
+  	}
+  	&--blockText {
+  		padding: 0;
+    	margin: 10px 0;
+  	}
+} 
 
