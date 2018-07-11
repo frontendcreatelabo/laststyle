@@ -20,7 +20,7 @@
 }
 
 //-webkit系デフォルトパディングの削除
-@mixin webkitMarginClear($size: 2rem, $color: rgba(150,150,150,.4)){
+@mixin webkitMarginClear{
 	-webkit-margin-after: 0;
 	-webkit-margin-before: 0;
 }
@@ -154,7 +154,7 @@ h2,ol,blockquote {
   	}
   	&--blockText {
   		@include webkitMarginClear;
-    	margin: 10px 0;
+    	margin-top: 11px;
   	}
 }
 
