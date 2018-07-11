@@ -25,16 +25,45 @@
 	-webkit-margin-before: 0;
 }
 
+$basecolor: #555;
+$palecolor: #999;
+
 body {
 	margin: 0;
 	padding: 0;
 	font-size: 1.2em;
-	color: #111;
+	color: $basecolor;
+	animation: fadeIn 3s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
 }
 
 h2,ol,blockquote {
 	@include webkitMarginClear;
 }
+
+svg {
+  display: inline-block;
+  width: 250px;
+  height: auto;
+  overflow: visible;
+}
+text {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
 
 .contents {
 	position: relative;
@@ -64,7 +93,6 @@ h2,ol,blockquote {
 	 	}
 	}
 }
-
 
 .contentsbody {
 	margin: 50px auto;
@@ -138,8 +166,8 @@ h2,ol,blockquote {
 			position: relative;
 			padding: 1px 15px 0 50px;
 			font-style: italic;
-			color: #464646;
 			&:before {
+				color: $palecolor;
 				display: inline-block;
 				position: absolute;
 				top: -15px;
@@ -147,7 +175,6 @@ h2,ol,blockquote {
 				vertical-align: middle;
 				content: "“";
 				font-family: monospace;
-				color: #77c0c9;
 				font-size: 90px;
 				line-height: 1;
 			}
