@@ -55,12 +55,24 @@ body {
 	font-size: 1.2em;
 	color: $basecolor;
 	animation: fadeIn 3s ease 0s 1 normal;
-  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+	-webkit-animation: fadeIn 3s ease 0s 1 normal;
 }
 
 @keyframes fadeIn {
     0% {opacity: 0}
     100% {opacity: 1}
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  50%{
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 @-webkit-keyframes fadeIn {
@@ -102,6 +114,8 @@ h2,ol,blockquote {
 		black 1px -2px, black -1px -2px,
 		black 2px 1px,  black -2px 1px,
 		black 2px -1px, black -2px -1px;
+		animation-duration: 2s; 
+   		animation-name: pulse;
 	 	&:first-letter {
 	 		margin-right: .1em;
 	 		font-size: 1.7em;
@@ -125,6 +139,8 @@ h2,ol,blockquote {
 }
 
 .imgpanel {
+	animation: fadeIn 3s ease 0s 1 normal;
+	-webkit-animation: fadeIn 3s ease 0s 1 normal;
 	padding: 10px;
 	@include flexProp;
 	justify-content: space-between;
@@ -189,10 +205,24 @@ h2,ol,blockquote {
   	}
   	&--blockText {
   		@include webkitMarginClear;
-    	margin-top: 11px;
+    	margin-top: 14px;
   	}
-		&--markerYellow {
-			@include markerStyle;
+	&--marker {
+		@include markerStyle;
+		&-blue {
+			@include markerStyle(70%,#AFEEEE);
 		}
+	}
+	&--linkIcon {
+		position: relative;
+		&:before {
+			content: "\f0c1";
+			color: #111;
+			font-family: Fontawesome;
+			margin-right: .4em;
+			position: absolute;
+			left: -1.2em;
+		}
+	}
 }
 
